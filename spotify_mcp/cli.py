@@ -72,13 +72,13 @@ def main(argv=None):
 
     # writes
     p_ = sub.add_parser("create"); p_.add_argument("name"); p_.add_argument("--public", action="store_true"); p_.add_argument("--desc", default="")
-    p_ = sub.add_parser("add"); p_.add_argument("playlist_id"); add_items_args(sp_); p_.add_argument("--no-dedupe", action="store_true")
-    p_ = sub.add_parser("remove"); p_.add_argument("playlist_id"); add_items_args(sp_); p_.add_argument("--confirm", action="store_true")
+    p_ = sub.add_parser("add"); p_.add_argument("playlist_id"); add_items_args(p_); p_.add_argument("--no-dedupe", action="store_true")
+    p_ = sub.add_parser("remove"); p_.add_argument("playlist_id"); add_items_args(p_); p_.add_argument("--confirm", action="store_true")
     p_ = sub.add_parser("reorder"); p_.add_argument("playlist_id"); p_.add_argument("range_start", type=int); p_.add_argument("insert_before", type=int)
     p_ = sub.add_parser("rename"); p_.add_argument("playlist_id"); p_.add_argument("name")
     p_ = sub.add_parser("empty"); p_.add_argument("playlist_id"); p_.add_argument("--confirm", action="store_true")
     p_ = sub.add_parser("delete"); p_.add_argument("playlist_id"); p_.add_argument("--confirm", action="store_true")
-    p_ = sub.add_parser("like"); add_items_args(sp_)
+    p_ = sub.add_parser("like"); add_items_args(p_)
 
     a = p.parse_args(argv)
     c = a.cmd
